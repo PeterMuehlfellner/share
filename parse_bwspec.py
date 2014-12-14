@@ -1,3 +1,11 @@
+# Instructions for Windows:
+# 1) Install Anaconda (http://continuum.io/downloads)
+# 2) Run IPython (Start -> IPython)
+# 3) Adjust configuration.
+# 4) Type "run parse_bwspec.py"
+# 5) ???
+# 6) Profit!
+
 import os
 
 hasMatplotlib=True
