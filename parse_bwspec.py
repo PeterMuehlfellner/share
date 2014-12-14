@@ -25,7 +25,7 @@ extension = ".txt"
 # How many lines are there before the data shows up?
 dataStartIndex = 79
 
-# Character used to seperate data entries
+# Character used to separate data entries
 token = ";"
 
 # The column of interest
