@@ -1,8 +1,8 @@
 # Instructions for Windows:
 # 1) Install Anaconda (http://continuum.io/downloads)
-# 2) Adjust configuration.
+# 2) Adjust configuration (i.e. set correct directories and stuff below).
 # 3) Run IPython (Start -> IPython)
-# 4) Type "cd where-ever-this-fil-is"
+# 4) Type "cd where-ever-this-file-is"
 # 5) Type "run parse_bwspec.py"
 # 6) ???
 # 7) Profit!
@@ -48,7 +48,7 @@ for fileName in fileNames:
 			if i>=dataStartIndex:
 				ll = l.split(token)
 				
-				# If there are non-flaot values, e.g. "    " in that col, 
+				# If there are non-float values, e.g. "    " in that col, 
 				# you're gonna have to do some additional gating here.
 				# The replace is for the German style commas.
 				d = float(ll[columnIndex].replace(",", "."))
