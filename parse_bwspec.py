@@ -1,10 +1,11 @@
 # Instructions for Windows:
 # 1) Install Anaconda (http://continuum.io/downloads)
-# 2) Run IPython (Start -> IPython)
-# 3) Adjust configuration.
-# 4) Type "run parse_bwspec.py"
-# 5) ???
-# 6) Profit!
+# 2) Adjust configuration.
+# 3) Run IPython (Start -> IPython)
+# 4) Type "cd where-ever-this-fil-is"
+# 5) Type "run parse_bwspec.py"
+# 6) ???
+# 7) Profit!
 
 import os
 
@@ -85,4 +86,6 @@ if hasMatplotlib:
 	for fileName, d in zip(fileNames, D):
 		pl.plot(d, label=fileName)
 	
+	pl.legend()
 	pl.show()
+	
