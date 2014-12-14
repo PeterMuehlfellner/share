@@ -1,12 +1,16 @@
 import os
-#import numpy as np
+
+hasMatplotlib=True
+if hasMatplotlib: 
+	import numpy as np
+	import pylab as pl
 
 #
 # Configuration
 #
 
 # Directory where all my files are at.
-sourceDir = ""
+sourceDir = "D:/git/share/test"
 extension = ".txt"
 
 # How many lines are there before the data shows up?
@@ -16,21 +20,19 @@ dataStartIndex = 79
 token = ";"
 
 # The column of interest
-columnIndex = 
+columnIndex = 6
 
 
-
-# First get the files.
-fileNames = [fileName for  fileName in os.listdir(sourceDir) if fileName.endswith(extension)]
 
 #
 #Parse the data
 #
+fileNames = [fileName for  fileName in os.listdir(sourceDir) if fileName.endswith(extension)]
 
 allData = []
 
 for fileName in fileNames:
-	with open(fileName, 'r') as fileHandle:
+	with open(os.path.join(sourceDir, fileName), 'r') as fileHandle:
 		data = []
 	
 		for i, l in enumerate(fileHandle.readlines()):
@@ -39,10 +41,12 @@ for fileName in fileNames:
 				
 				# If there are non-flaot values, e.g. "    " in that col, 
 				# you're gonna have to do some additional gating here.
-				d = float(ll[columnIndex])
+				# The replace is for the German style commas.
+				d = float(ll[columnIndex].replace(",", "."))
 				data.append(d)
 		
 		allData.append(data)
+		
 		
 		
 #
@@ -60,3 +64,17 @@ for fileName, value in zip(fileNames, maxima):
 	print "{0}: {1}".format(fileName, value)
 
 print "\nOverall max: {0}".format(overall_max)
+
+
+if hasMatplotlib:
+	# Make everything numpy arrays. These are basically like MATLAB matrices.
+	D = np.array(allData)
+
+	pl.figure()
+	pl.title("Frobonication")
+	pl.xlabel("Penile Length")
+	pl.ylabel("Average Fr.")
+	for fileName, d in zip(fileNames, D):
+		pl.plot(d, label=fileName)
+	
+	pl.show()
